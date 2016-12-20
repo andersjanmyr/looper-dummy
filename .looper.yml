@@ -12,15 +12,21 @@ flows:
 
   test_ios:
     (on osx):
+      - pwd
+      - ls -la
       - ws_restore: snap
       - uname -a
       - cat uname.txt
       - sleep 10
+      - ls -la
 
 
   test_android:
     (on master):
+      - pwd
+      - ls -la
       - ws_restore: snap
       - uname -a
       - cat uname.txt
       - sleep 10
+      - ls -la
