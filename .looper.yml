@@ -6,7 +6,7 @@ flows:
     - call: test_android
 
   build:
-    - (on osx) uname -a >> uname.txt
+    - (on osx) uname -a > uname.txt
 
   test_ios:
     (on osx):
