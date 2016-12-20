@@ -1,0 +1,20 @@
+flows:
+  master:
+    - call: build
+    - ws_snapshot: snap
+    - call: test_ios
+    - call: test_android
+
+    build:
+      - (on osx) uname -a >> uname.txt
+
+    test_ios:
+      - (on osx) ws_restore: snap
+      - (on osx) uname -a
+      - (on osx) cat uname.txt
+
+
+    test_android:
+      - (on master) ws_restore: snap
+      - (on master) uname -a
+      - (on master) cat uname.txt
