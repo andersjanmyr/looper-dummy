@@ -6,20 +6,21 @@ flows:
 
   build:
     (on osx):
-      - mkdir build
-      - touch build/uname.txt
       - shell: "uname -a > uname.txt"
-      # - ws_snapshot: snap
+      - sleep 10
+      - ws_snapshot: snap
 
   test_ios:
     (on osx):
-      # - ws_restore: snap
+      - ws_restore: snap
       - uname -a
       - cat uname.txt
+      - sleep 10
 
 
   test_android:
     (on master):
-      # - ws_restore: snap
+      - ws_restore: snap
       - uname -a
       - cat uname.txt
+      - sleep 10
