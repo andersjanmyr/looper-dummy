@@ -5,9 +5,9 @@ flows:
     - call: test_ios
 
   build:
-    (on osx):
+    (on master):
       - shell: "uname -a > uname.txt"
-      - sleep 10
+      - sleep 2
       - ws_snapshot: snap
 
   test_ios:
@@ -18,7 +18,7 @@ flows:
       - ls -la
       - uname -a
       - cat uname.txt
-      - sleep 10
+      - sleep 2
 
 
   test_android:
@@ -29,4 +29,4 @@ flows:
       - ls -la
       - uname -a
       - cat uname.txt
-      - sleep 10
+      - sleep 2
