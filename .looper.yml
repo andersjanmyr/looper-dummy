@@ -1,19 +1,17 @@
 flows:
   master:
     - call: build
-    - ws_snapshot: snap
     - call: test_ios
     - call: test_android
 
   build:
-    - (on osx) touch wname.txt
     - (on osx) shell: uname -a > uname.txt
+    - (on osx) ws_snapshot: snap
 
   test_ios:
     (on osx):
       - ws_restore: snap
       - uname -a
-      - ls -l wname.txt
       - cat uname.txt
 
 
@@ -21,5 +19,4 @@ flows:
     (on master):
       - ws_restore: snap
       - uname -a
-      - ls -l wname.txt
       - cat uname.txt
