@@ -5,8 +5,9 @@ flows:
     - call: test_android
 
   build:
-    - (on osx) shell: uname -a > uname.txt
-    - (on osx) ws_snapshot: snap
+    (on osx):
+      - shell: uname -a > uname.txt
+      - ws_snapshot: snap
 
   test_ios:
     (on osx):
