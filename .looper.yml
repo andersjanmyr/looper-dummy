@@ -22,7 +22,7 @@ flows:
 
 
   test_android:
-    (on master):
+    (on linux):
       - pwd
       - ls -la
       - ws_restore: snap
