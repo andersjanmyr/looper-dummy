@@ -5,18 +5,18 @@ flows:
     - call: test_ios
     - call: test_android
 
-    build:
-      - (on osx) uname -a >> uname.txt
+  build:
+    - (on osx) uname -a >> uname.txt
 
-    test_ios:
-      (on osx):
-        - ws_restore: snap
-        - uname -a
-        - cat uname.txt
+  test_ios:
+    (on osx):
+      - ws_restore: snap
+      - uname -a
+      - cat uname.txt
 
 
-    test_android:
-      (on master):
-        - ws_restore: snap
-        - uname -a
-        - cat uname.txt
+  test_android:
+    (on master):
+      - ws_restore: snap
+      - uname -a
+      - cat uname.txt
