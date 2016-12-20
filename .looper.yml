@@ -12,6 +12,7 @@ flows:
 
   test_ios:
     (on osx):
+      - ws_restore: snap
       - uname -a
       - cat uname.txt
       - sleep 10
