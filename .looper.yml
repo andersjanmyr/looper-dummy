@@ -6,7 +6,8 @@ flows:
 
   build:
     (on osx):
-      - shell: uname -a > uname.txt
+      - touch uname.txt
+      - shell: "uname -a > uname.txt"
       # - ws_snapshot: snap
 
   test_ios:
