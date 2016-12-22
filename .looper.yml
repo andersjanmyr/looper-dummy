@@ -8,7 +8,6 @@ flows:
 
   build:
     - (on linux):
-      - ws_restore: linuxsnapshot
       - uname -a
       - ls -la
     - (on osx):
