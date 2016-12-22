@@ -1,6 +1,6 @@
 flows:
   master:
-    - (on master, name master-node) uname -a > master.txt
+    - uname -a > master.txt
     - (on osx, name osx-node) uname -a > osx.txt
     - (on linux, name linux-node) uname -a > linux.txt
     - call: build
