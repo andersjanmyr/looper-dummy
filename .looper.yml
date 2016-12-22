@@ -6,9 +6,6 @@ flows:
     - call: build
 
   build:
-    (on master):
-      - uname -a
-      - ls -la
-    (on osx):
+    (on task(master-node)):
       - uname -a
       - ls -la
