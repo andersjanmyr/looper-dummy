@@ -9,6 +9,10 @@ flows:
     - (on linux):
       - uname -a
       - ls -la
+      - call: linux-task
     - (on osx):
       - uname -a
       - ls -la
+
+  linux-task:
+    (on linux) ls -la
