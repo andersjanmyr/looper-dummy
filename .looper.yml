@@ -1,32 +1,11 @@
 flows:
   master:
+    - (on master, name master-node) uname -a > master.txt
+    - (on osx, name osx-node) uname -a > osx.txt
+    - (on linux, name linux-node) uname -a > linux.txt
     - call: build
-    - call: test_android
-    - call: test_ios
 
   build:
-    (on master):
-      - shell: "uname -a > uname.txt"
-      - sleep 2
-      - ws_snapshot: snap
-
-  test_ios:
-    (on osx):
-      - pwd
-      - ls -la
-      - ws_restore: snap
-      - ls -la
+    (on master-node):
       - uname -a
-      - cat uname.txt
-      - sleep 2
-
-
-  test_android:
-    (on linux):
-      - pwd
       - ls -la
-      - ws_restore: snap
-      - ls -la
-      - uname -a
-      - cat uname.txt
-      - sleep 2
