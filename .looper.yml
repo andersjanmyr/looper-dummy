@@ -3,10 +3,12 @@ flows:
     - uname -a > master.txt; chmod a+x master.txt
     - (on osx, name osx-node) uname -a > osx.txt; chmod a+x osx.txt
     - (on linux, name linux-node) uname -a > linux.txt; chmod a+x linux.txt
+    - (on task(linux-node)) ws_snapshot: linux-snapshot
     - call: build
 
   build:
     - (on linux):
+      - ws_restore: linux-snapshot
       - uname -a
       - ls -la
     - (on osx):
