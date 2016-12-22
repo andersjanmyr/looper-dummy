@@ -7,12 +7,10 @@ flows:
     - call: build
 
   build:
-    - (on linux):
-      - ws_restore: mastersnapshot
+    - (on linux, shared):
       - uname -a
       - ls -la
-    - (on osx):
-      - ws_restore: mastersnapshot
+    - (on osx, shared):
       - uname -a
       - ls -la
 
