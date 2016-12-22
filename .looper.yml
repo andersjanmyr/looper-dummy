@@ -15,4 +15,4 @@ flows:
       - ls -la
 
   linux-task:
-    (on linux) ls -la
+    (on task(linux-node)) ls -la
