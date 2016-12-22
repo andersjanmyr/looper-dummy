@@ -1,18 +1,15 @@
 flows:
   master:
-    - uname -a > master.txt
-    - (on osx, name osx-node) uname -a > osx.txt
-    - (on linux, name linux-node) uname -a > linux.txt
+    - uname -a > master.txt; chmod a+x master.txt
+    - (on osx, name osx-node) uname -a > osx.txt; chmod a+x osx.txt
+    - (on linux, name linux-node) uname -a > linux.txt; chmod a+x linux.txt
     - call: build
 
   build:
     - (on linux):
       - uname -a
       - ls -la
-      - call: linux-task
     - (on osx):
       - uname -a
       - ls -la
 
-  linux-task:
-    (on task(linux-node)) ls -la
