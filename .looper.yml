@@ -1,6 +1,6 @@
 flows:
   master:
-    - uname -a > master.txt; chmod a+x master.txt
+    - (on master) uname -a > master.txt; chmod a+x master.txt
     - ws_snapshot: mastersnapshot
     - (on osx, name osx-node) uname -a > osx.txt; chmod a+x osx.txt
     - (on linux, name linux-node) uname -a > linux.txt; chmod a+x linux.txt
