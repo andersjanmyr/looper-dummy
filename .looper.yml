@@ -1,16 +1,10 @@
+tools:
+  jdk:
+    - 8u102-b14
+  maven:
+    - 3.3.9
+
 flows:
   master:
-    - (on master) uname -a > master.txt; chmod a+x master.txt
-    - ws_snapshot: mastersnapshot
-    - (on osx, name osx-node) uname -a > osx.txt; chmod a+x osx.txt
-    - (on linux, name linux-node) uname -a > linux.txt; chmod a+x linux.txt
-    - call: build
-
-  build:
-    - (on linux, shared):
-      - uname -a
-      - ls -la
-    - (on osx, shared):
-      - uname -a
-      - ls -la
-
+    - (on master) uname -a > master.txt
+    - java -version
