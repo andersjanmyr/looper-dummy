@@ -8,3 +8,4 @@ flows:
   master:
     - (on master) uname -a > master.txt
     - java -version
+    - mvn --version
