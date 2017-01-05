@@ -1,6 +1,6 @@
 tools:
-  jdk:
-    - 8u102-b14
+  jdk: NL
+
   maven:
     - 3.3.9
 
