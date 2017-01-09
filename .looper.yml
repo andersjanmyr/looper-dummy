@@ -1,3 +1,4 @@
 flows:
   master:
+    - uname -a
     - echo "Secret value of tapir is: $tapir"
