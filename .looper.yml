@@ -1,32 +1,3 @@
 flows:
   master:
-    - call: build
-    - call: test_android
-    - call: test_ios
-
-  build:
-    (on master):
-      - shell: "uname -a > uname.txt"
-      - sleep 2
-      - ws_snapshot: snap
-
-  test_ios:
-    (on osx):
-      - pwd
-      - ls -la
-      - ws_restore: snap
-      - ls -la
-      - uname -a
-      - cat uname.txt
-      - sleep 2
-
-
-  test_android:
-    (on linux):
-      - pwd
-      - ls -la
-      - ws_restore: snap
-      - ls -la
-      - uname -a
-      - cat uname.txt
-      - sleep 2
+    - echo "Secret value of tapir is: $tapir"
