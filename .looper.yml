@@ -2,4 +2,4 @@ flows:
   master:
     - (name echo-secret) echo "Secret value of tapir is: $tapir"
     - (name echo-to-file) echo "Secret value of tapir is: $tapir" > tapir.txt
-
+    - env
