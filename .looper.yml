@@ -2,5 +2,6 @@ flows:
   master:
     - env
     - (name echo build_number) echo "BUILD_NUMBER: $BUILD_NUMBER"
+    - cat /tmp/*.sh
     - (name echo to file) echo "Secret value of tapir is: $tapir" > tapir.txt
     - (name echo secret) echo "Secret value of tapir is: $tapir"
