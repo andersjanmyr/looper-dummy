@@ -2,7 +2,8 @@ envs:
  global:
     variables:
       TAPIR: "%{credentials.secret('tapir')}"
-      AARDVARK: "$aardvark"
+      SSH_KEY: "%{credentials.secret('anders-ssh-key')}"
+
 flows:
   master:
     - env
@@ -10,5 +11,4 @@ flows:
     - (name echo build_number) echo "BUILD_NUMBER" ${BUILD_NUMBER}
     - (name echo to file) echo "Secret value of tapir is:" ${TAPIR} > tapir.txt
     - (name echo secret) echo "Secret value of tapir is:" $TAPIR
-    - (name echo injected to file) echo "Secret value of tapir is:" ${AARDVARK} > tapir.txt
-    - (name echo injected secret) echo "Secret value of tapir is:" $AARDVARK
+    - echo "$SSH_KEY" > anders_id_rsa
