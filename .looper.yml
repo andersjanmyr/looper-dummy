@@ -2,7 +2,7 @@ envs:
  global:
     variables:
       TAPIR: "%{credentials.secret('tapir')}"
-      AARDVARK: "%{credentials.secret('aardvark')}"
+      AARDVARK: "$aardvark"
 flows:
   master:
     - env
