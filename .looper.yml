@@ -1,14 +1,13 @@
 envs:
  global:
     variables:
-      TAPIR: "%{credentials.secret('tapir')}"
-      SSH_KEY: "%{credentials.secret('anders-ssh-key')}"
+      SSH_KEY: "%{credentials.secret('a_ssh')}"
+      SSH_FILE: "%{credentials.filename('a_ssh')}"
+      GIT_SSH_COMMAND: "ssh -i %{credentials.filename('a_ssh')}"
 
 flows:
   master:
     - env
-    - cat /tmp/*.sh
     - (name echo build_number) echo "BUILD_NUMBER" ${BUILD_NUMBER}
-    - (name echo to file) echo "Secret value of tapir is:" ${TAPIR} > tapir.txt
-    - (name echo secret) echo "Secret value of tapir is:" $TAPIR
-    - echo "$SSH_KEY" > anders_id_rsa
+    - echo "$SSH_KEY" "$SSH_FILE"
+    - git clone git@gecgithub01.walmart.com:Walmart-Android/walmart-android.git
