@@ -2,12 +2,10 @@ envs:
  global:
     variables:
       SSH_KEY: "%{credentials.secret('a_ssh')}"
-      SSH_FILE: "%{credentials.filename('a_ssh')}"
-      GIT_SSH_COMMAND: "ssh -i %{credentials.filename('a_ssh')}"
 
 flows:
   master:
     - env
-    - (name echo build_number) echo "BUILD_NUMBER" ${BUILD_NUMBER}
-    - echo "$SSH_KEY" "$SSH_FILE"
+    - echo "$SSH_KEY" > /tmp/my_ssh_key; chmod 0600 /tmp/my_ssh_key
+    - export GIT_SSH_COMMAND="ssh -i /tmp/my_ssh_key"
     - git clone git@gecgithub01.walmart.com:Walmart-Android/walmart-android.git
