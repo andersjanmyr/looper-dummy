@@ -9,7 +9,8 @@ triggers:
     call: cronjob
 
 flows:
-  master:
+  default:
+    - echo "default"
     - env
     - echo "$SSH_KEY" > /tmp/my_ssh_key; chmod 0600 /tmp/my_ssh_key
     - export GIT_SSH_COMMAND="ssh -i /tmp/my_ssh_key"
