@@ -4,7 +4,8 @@ envs:
       SSH_KEY: "%{credentials.secret('a_ssh')}"
 
 triggers:
-  - cron: H/2 * * * *
+  cron:
+    spec: H/2 * * * *
     call: master
 
 flows:
