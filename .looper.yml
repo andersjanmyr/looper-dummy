@@ -6,7 +6,7 @@ envs:
 triggers:
   cron:
     spec: H/2 * * * *
-    call: master
+    call: cronjob
 
 flows:
   master:
