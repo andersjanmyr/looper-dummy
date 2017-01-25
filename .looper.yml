@@ -1,7 +1,4 @@
 envs:
- global:
-    variables:
-      SSH_KEY: "%{credentials.secret('a_ssh')}"
 
 triggers:
   cron:
@@ -12,10 +9,6 @@ flows:
   default:
     - echo "default"
     - env
-    - echo "$SSH_KEY" > /tmp/my_ssh_key; chmod 0600 /tmp/my_ssh_key
-    - export GIT_SSH_COMMAND="ssh -i /tmp/my_ssh_key"
-    - rm -rf walmart-android
-    - git clone git@gecgithub01.walmart.com:Walmart-Android/walmart-android.git
 
   cronjob:
     - echo "cronjob"
